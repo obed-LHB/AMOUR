@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7f8">
+  <meta name="description" content="Une petite lettre d'amour numérique, imaginée spécialement pour Octobre Rose.">
+  <title>Pour toi, en Octobre Rose 🌸</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="petal-layer petal-layer--intro" id="intro-petals" aria-hidden="true"></div>
+  <div class="petal-layer petal-layer--final" id="final-petals" aria-hidden="true"></div>
+  <div class="heart-layer" id="hearts" aria-hidden="true"></div>
+
+  <main class="story" id="story">
+    <section class="scene scene--intro is-active" id="intro" aria-labelledby="intro-title" aria-hidden="false">
+      <div class="intro-content">
+        <span class="eyebrow"><span class="eyebrow-line"></span> une lettre rien que pour toi <span class="eyebrow-line"></span></span>
+        <div class="intro-flower" aria-hidden="true">🌸</div>
+        <h1 id="intro-title">Une petite surprise<br><em>pour toi…</em></h1>
+        <p class="intro-subtitle">Prends quelques secondes…</p>
+        <button class="button button--primary" data-next="message">Découvrir la surprise <span aria-hidden="true">→</span></button>
+        <span class="tiny-note">à lire avec le cœur</span>
+      </div>
+      <span class="corner-sparkle sparkle-one" aria-hidden="true">✧</span>
+      <span class="corner-sparkle sparkle-two" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="scene scene--message" id="message" aria-labelledby="message-title" aria-hidden="true" inert>
+      <div class="story-card message-card">
+        <span class="step-mark">01 <i></i> 05</span>
+        <div class="ribbon-icon" aria-hidden="true">🎀</div>
+        <p class="kicker reveal">une pensée toute simple</p>
+        <h2 class="reveal" id="message-title">Octobre est rose… <span class="soft-emoji">🎀</span></h2>
+        <p class="lead reveal">Mais aujourd'hui, j'avais surtout envie de te rappeler quelque chose.</p>
+        <div class="card-divider reveal"><span>♡</span></div>
+        <button class="button button--primary reveal" data-next="romance">Continuer <span aria-hidden="true">→</span></button>
+      </div>
+      <span class="orbit orbit--one" aria-hidden="true"></span>
+      <span class="orbit orbit--two" aria-hidden="true"></span>
+    </section>
+
+    <section class="scene scene--romance" id="romance" aria-labelledby="romance-title" aria-hidden="true" inert>
+      <div class="story-card romance-card">
+        <span class="step-mark">02 <i></i> 05</span>
+        <div class="rose-portrait reveal" aria-label="Une rose rose" role="img">
+          <div class="rose rose--large"><span class="rose-head"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="rose-stem"></span><span class="rose-leaf rose-leaf--left"></span><span class="rose-leaf rose-leaf--right"></span></div>
+          <span class="portrait-halo"></span>
+        </div>
+        <p class="kicker reveal">à la plus belle des fleurs</p>
+        <h2 class="visually-hidden" id="romance-title">Une rose pour toi</h2>
+        <div class="romantic-copy">
+          <p class="reveal">Parmi toutes les roses du monde, il y en a une qui a une place particulière dans mon cœur : <strong>toi.</strong> <span>🌹</span></p>
+          <p class="reveal">Je voulais simplement profiter de ce mois d'Octobre Rose pour te rappeler que tu es <strong>précieuse, unique et importante.</strong></p>
+          <p class="reveal">Prends soin de toi, souris souvent et n'oublie jamais la magnifique personne que tu es. <span>❤️</span></p>
+        </div>
+        <button class="button button--primary reveal" data-next="awareness">Encore un petit peu… <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="scene scene--awareness" id="awareness" aria-labelledby="awareness-title" aria-hidden="true" inert>
+      <div class="story-card awareness-card">
+        <span class="step-mark">03 <i></i> 05</span>
+        <div class="awareness-ribbon reveal" aria-hidden="true">🎀</div>
+        <p class="kicker reveal">une attention qui compte</p>
+        <h2 class="reveal" id="awareness-title">Un petit rappel <em>important</em></h2>
+        <div class="awareness-copy reveal">
+          <p>Octobre Rose est un mois consacré à la sensibilisation au cancer du sein. C'est l'occasion de parler de prévention, de dépistage et de l'importance de prendre soin de sa santé.</p>
+          <p class="care-note"><span aria-hidden="true">♡</span> Prends soin de toi. Écoute ton corps et, en cas de doute ou de changement inhabituel, demande conseil à un professionnel de santé.</p>
+        </div>
+        <p class="medical-note reveal">Ce message est une attention personnelle, pas un avis médical.</p>
+        <button class="button button--primary reveal" data-next="interlude">Continuer <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="scene scene--interlude" id="interlude" aria-labelledby="interlude-title" aria-hidden="true" inert>
+      <div class="interlude-content">
+        <div class="interlude-bloom" aria-hidden="true"><span>✿</span><i>♡</i></div>
+        <p class="kicker reveal">garde encore un instant</p>
+        <h2 class="reveal" id="interlude-title">Mais j'ai encore<br><em>quelque chose à te montrer…</em></h2>
+        <button class="button button--light reveal" id="show-surprise">Voir la surprise <span aria-hidden="true">🌹</span></button>
+      </div>
+    </section>
+
+    <section class="scene scene--final" id="finale" aria-labelledby="final-title" aria-hidden="true" inert>
+      <div class="final-scene-glow" aria-hidden="true"></div>
+      <div class="final-bouquet" aria-label="Un bouquet de roses roses" role="img">
+        <div class="rose rose--one"><span class="rose-head"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="rose-stem"></span><span class="rose-leaf rose-leaf--left"></span><span class="rose-leaf rose-leaf--right"></span></div>
+        <div class="rose rose--two"><span class="rose-head"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="rose-stem"></span><span class="rose-leaf rose-leaf--left"></span><span class="rose-leaf rose-leaf--right"></span></div>
+        <div class="rose rose--three"><span class="rose-head"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="rose-stem"></span><span class="rose-leaf rose-leaf--left"></span><span class="rose-leaf rose-leaf--right"></span></div>
+        <div class="rose rose--four"><span class="rose-head"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="rose-stem"></span><span class="rose-leaf rose-leaf--left"></span><span class="rose-leaf rose-leaf--right"></span></div>
+        <div class="rose rose--five"><span class="rose-head"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></span><span class="rose-stem"></span><span class="rose-leaf rose-leaf--left"></span><span class="rose-leaf rose-leaf--right"></span></div>
+        <span class="bouquet-wrap" aria-hidden="true"></span>
+        <span class="bouquet-bow" aria-hidden="true">♡</span>
+      </div>
+      <div class="final-copy">
+        <p class="final-kicker reveal">avec tout mon amour</p>
+        <h2 class="reveal" id="final-title">Pour toi <span>❤️</span></h2>
+        <p class="final-message reveal">Je voulais simplement te rappeler à quel point tu es précieuse pour moi.</p>
+        <p class="final-signoff reveal">Prends soin de toi. <span>🌸</span></p>
+        <button class="button button--light reveal" id="replay">Rejouer la surprise <span aria-hidden="true">↻</span></button>
+      </div>
+      <span class="final-heart final-heart--one" aria-hidden="true">♡</span>
+      <span class="final-heart final-heart--two" aria-hidden="true">♡</span>
+      <span class="final-heart final-heart--three" aria-hidden="true">✧</span>
+    </section>
+  </main>
+  <div class="sr-status visually-hidden" id="live-status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

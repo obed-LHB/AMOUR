@@ -1,0 +1,2043 @@
+/* =========================================================
+   POUR TOI, EN OCTOBRE ROSE 🌸
+   Feuille de style complète
+   ========================================================= */
+
+/* ---------- VARIABLES ---------- */
+
+:root {
+  --bg: #fff7f8;
+  --bg-soft: #fff0f4;
+  --pink: #e85d88;
+  --pink-dark: #b93668;
+  --pink-deep: #8d234e;
+  --rose: #f48aaa;
+  --rose-light: #ffc4d5;
+  --white: #ffffff;
+  --text: #542c3c;
+  --text-soft: #8b6371;
+  --gold: #d5a35b;
+
+  --shadow-soft: 0 20px 60px rgba(143, 45, 82, 0.12);
+  --shadow-card: 0 25px 80px rgba(143, 45, 82, 0.15);
+
+  --radius: 28px;
+  --transition: 0.55s cubic-bezier(.22, .8, .25, 1);
+}
+
+
+/* ---------- RESET ---------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family:
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 190, 210, .45), transparent 28%),
+    radial-gradient(circle at 85% 85%, rgba(244, 138, 170, .22), transparent 30%),
+    linear-gradient(135deg, #fffafd, var(--bg));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(232, 93, 136, .35);
+  outline-offset: 5px;
+}
+
+
+/* ---------- ACCESSIBILITY ---------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-status {
+  position: absolute;
+}
+
+
+/* ---------- AMBIENT BACKGROUND ---------- */
+
+.ambient-glow {
+  position: fixed;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 25% 30%,
+      rgba(255, 177, 202, .25),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgba(233, 107, 147, .16),
+      transparent 27%
+    );
+  filter: blur(30px);
+  animation: ambientMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambientMove {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.08) rotate(3deg);
+  }
+}
+
+
+/* ---------- STORY CONTAINER ---------- */
+
+.story {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* ---------- SCENES ---------- */
+
+.scene {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 24px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: scale(.97);
+  transition:
+    opacity .65s ease,
+    transform .75s cubic-bezier(.22, .8, .25, 1),
+    visibility .65s ease;
+}
+
+.scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+
+/* ---------- INTRO ---------- */
+
+.scene--intro {
+  text-align: center;
+  overflow: hidden;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 720px;
+  animation: introAppear 1.2s ease both;
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+  color: var(--pink-dark);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.eyebrow-line {
+  width: 35px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--rose)
+  );
+}
+
+.eyebrow-line:last-child {
+  transform: rotate(180deg);
+}
+
+.intro-flower {
+  display: grid;
+  place-items: center;
+
+  width: 92px;
+  height: 92px;
+
+  margin-bottom: 25px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.95),
+      rgba(255,222,231,.8)
+    );
+
+  box-shadow:
+    0 20px 50px rgba(224, 77, 123, .15),
+    inset 0 0 30px rgba(255,255,255,.7);
+
+  font-size: 3.4rem;
+
+  animation:
+    flowerFloat 4s ease-in-out infinite;
+}
+
+@keyframes flowerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-9px) rotate(2deg);
+  }
+}
+
+.intro-content h1 {
+  color: var(--pink-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.intro-content h1 em {
+  color: var(--pink);
+  font-weight: 400;
+}
+
+.intro-subtitle {
+  margin-top: 25px;
+  margin-bottom: 30px;
+
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  letter-spacing: .02em;
+}
+
+.tiny-note {
+  margin-top: 17px;
+
+  color: rgba(84, 44, 60, .5);
+  font-size: .72rem;
+  font-style: italic;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 54px;
+  padding: 14px 25px;
+
+  border: 0;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button:active {
+  transform: translateY(0) scale(.97);
+}
+
+.button--primary {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--pink-dark)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(185, 54, 104, .25);
+}
+
+.button--primary:hover {
+  box-shadow:
+    0 18px 40px rgba(185, 54, 104, .35);
+}
+
+.button--light {
+  color: var(--pink-dark);
+
+  background: rgba(255,255,255,.92);
+
+  box-shadow:
+    0 12px 35px rgba(80, 20, 45, .15);
+}
+
+.button--light:hover {
+  background: white;
+
+  box-shadow:
+    0 18px 45px rgba(80, 20, 45, .22);
+}
+
+
+/* ---------- CORNER SPARKLES ---------- */
+
+.corner-sparkle {
+  position: absolute;
+
+  color: rgba(218, 82, 125, .5);
+
+  font-size: 2rem;
+
+  animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+.sparkle-one {
+  top: 16%;
+  left: 12%;
+}
+
+.sparkle-two {
+  right: 12%;
+  bottom: 17%;
+  animation-delay: 1s;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    opacity: .3;
+    transform: translateY(0) scale(.9) rotate(0deg);
+  }
+
+  50% {
+    opacity: .9;
+    transform: translateY(-10px) scale(1.1) rotate(15deg);
+  }
+}
+
+
+/* =========================================================
+   STORY CARDS
+   ========================================================= */
+
+.story-card {
+  position: relative;
+  z-index: 5;
+
+  width: min(700px, 100%);
+
+  padding: clamp(35px, 6vw, 65px);
+
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.9),
+      rgba(255,247,249,.76)
+    );
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
+}
+
+.story-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 180, 202, .2),
+      transparent 45%
+    );
+}
+
+
+/* ---------- STEP MARK ---------- */
+
+.step-mark {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(185, 54, 104, .45);
+
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.step-mark i {
+  display: block;
+
+  width: 25px;
+  height: 1px;
+
+  background: rgba(185, 54, 104, .25);
+}
+
+
+/* ---------- KICKER ---------- */
+
+.kicker {
+  margin-bottom: 15px;
+
+  color: var(--pink-dark);
+
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+
+/* ---------- TITLES ---------- */
+
+.story-card h2 {
+  position: relative;
+
+  color: var(--pink-deep);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.story-card h2 em {
+  color: var(--pink);
+  font-weight: 400;
+}
+
+.soft-emoji {
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: .7em;
+}
+
+
+/* ---------- REVEAL ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.22, .8, .25, 1);
+}
+
+.scene.is-active .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scene.is-active .reveal:nth-child(1) {
+  transition-delay: .15s;
+}
+
+.scene.is-active .reveal:nth-child(2) {
+  transition-delay: .25s;
+}
+
+.scene.is-active .reveal:nth-child(3) {
+  transition-delay: .35s;
+}
+
+.scene.is-active .reveal:nth-child(4) {
+  transition-delay: .45s;
+}
+
+.scene.is-active .reveal:nth-child(5) {
+  transition-delay: .55s;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.scene--message {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 198, 214, .22),
+      transparent 55%
+    );
+}
+
+.ribbon-icon {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 22px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 215, 225, .5);
+
+  font-size: 2.2rem;
+
+  box-shadow:
+    inset 0 0 25px rgba(255,255,255,.7);
+}
+
+.lead {
+  max-width: 510px;
+
+  margin: 24px auto 0;
+
+  color: var(--text-soft);
+
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.card-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  max-width: 260px;
+
+  margin: 28px auto;
+
+  color: var(--rose);
+}
+
+.card-divider::before,
+.card-divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(232,93,136,.35)
+    );
+}
+
+.card-divider::after {
+  transform: rotate(180deg);
+}
+
+.card-divider span {
+  font-size: 1.5rem;
+}
+
+
+/* ---------- ORBITS ---------- */
+
+.orbit {
+  position: absolute;
+
+  border: 1px solid rgba(232, 93, 136, .12);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation: orbitSpin 18s linear infinite;
+}
+
+.orbit--one {
+  width: 520px;
+  height: 520px;
+}
+
+.orbit--two {
+  width: 760px;
+  height: 760px;
+
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ROMANCE
+   ========================================================= */
+
+.scene--romance {
+  overflow-y: auto;
+}
+
+.romance-card {
+  max-width: 760px;
+}
+
+.rose-portrait {
+  position: relative;
+
+  width: 180px;
+  height: 185px;
+
+  margin: 0 auto 15px;
+}
+
+.portrait-halo {
+  position: absolute;
+  inset: 5px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 160, 188, .25),
+      transparent 65%
+    );
+
+  filter: blur(4px);
+}
+
+
+/* ---------- ROSE ---------- */
+
+.rose {
+  position: relative;
+
+  width: 100px;
+  height: 190px;
+
+  transform-origin: bottom center;
+}
+
+.rose-head {
+  position: absolute;
+
+  top: 15px;
+  left: 50%;
+
+  width: 78px;
+  height: 70px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50% 50% 45% 45%;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      #a92255 0 8%,
+      #d63e70 9% 20%,
+      #ee6f96 21% 42%,
+      #f798b3 43% 65%,
+      #ffd0dc 66% 100%
+    );
+
+  box-shadow:
+    inset 8px -8px 14px rgba(131, 20, 63, .25),
+    0 12px 25px rgba(185, 54, 104, .18);
+
+  transform-style: preserve-3d;
+}
+
+.rose-head::before,
+.rose-head::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #f58aaa,
+      #ca376c
+    );
+}
+
+.rose-head::before {
+  width: 48px;
+  height: 48px;
+
+  left: -5px;
+  top: 10px;
+
+  transform: rotate(-25deg);
+}
+
+.rose-head::after {
+  width: 48px;
+  height: 48px;
+
+  right: -5px;
+  top: 10px;
+
+  transform: rotate(25deg);
+}
+
+.rose-head i {
+  position: absolute;
+
+  display: block;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 45% 35%,
+      #ffb4c9,
+      #df5680
+    );
+
+  box-shadow:
+    inset -4px -4px 7px rgba(130, 25, 67, .16);
+}
+
+.rose-head i:nth-child(1) {
+  top: 3px;
+  left: 22px;
+}
+
+.rose-head i:nth-child(2) {
+  top: 20px;
+  left: 2px;
+}
+
+.rose-head i:nth-child(3) {
+  top: 22px;
+  right: 2px;
+}
+
+.rose-head i:nth-child(4) {
+  top: 35px;
+  left: 15px;
+}
+
+.rose-head i:nth-child(5) {
+  top: 35px;
+  right: 15px;
+}
+
+.rose-head i:nth-child(6) {
+  top: 22px;
+  left: 22px;
+
+  background:
+    radial-gradient(
+      circle,
+      #b72d61,
+      #8c1e4b
+    );
+}
+
+.rose-head b {
+  position: absolute;
+
+  width: 15px;
+  height: 15px;
+
+  top: 29px;
+  left: 31px;
+
+  border-radius: 50%;
+
+  background: #8d204d;
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.15);
+}
+
+.rose-stem {
+  position: absolute;
+
+  top: 76px;
+  left: 48px;
+
+  width: 5px;
+  height: 105px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to right,
+      #3d8752,
+      #69a866,
+      #2e7045
+    );
+
+  transform: rotate(2deg);
+}
+
+.rose-leaf {
+  position: absolute;
+
+  width: 42px;
+  height: 20px;
+
+  top: 105px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #72ad70,
+      #397c4e
+    );
+
+  border-radius: 100% 0 100% 0;
+}
+
+.rose-leaf--left {
+  left: 10px;
+  transform: rotate(25deg);
+}
+
+.rose-leaf--right {
+  right: 5px;
+  transform: scaleX(-1) rotate(20deg);
+}
+
+
+/* Large rose */
+
+.rose--large {
+  position: absolute;
+  left: 40px;
+  top: 0;
+
+  transform: scale(1.15);
+  animation: roseSway 5s ease-in-out infinite;
+}
+
+@keyframes roseSway {
+  0%, 100% {
+    transform: scale(1.15) rotate(-2deg);
+  }
+
+  50% {
+    transform: scale(1.15) rotate(3deg);
+  }
+}
+
+.romantic-copy {
+  max-width: 580px;
+
+  margin: 20px auto 28px;
+
+  text-align: center;
+}
+
+.romantic-copy p {
+  margin: 14px 0;
+
+  color: var(--text-soft);
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.romantic-copy strong {
+  color: var(--pink-dark);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   AWARENESS
+   ========================================================= */
+
+.awareness-card {
+  max-width: 760px;
+}
+
+.awareness-ribbon {
+  display: grid;
+  place-items: center;
+
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe0e9,
+      #fff
+    );
+
+  box-shadow:
+    0 12px 35px rgba(232,93,136,.13);
+
+  font-size: 2.2rem;
+}
+
+.awareness-copy {
+  max-width: 580px;
+
+  margin: 25px auto;
+
+  color: var(--text-soft);
+
+  font-size: .98rem;
+  line-height: 1.8;
+}
+
+.awareness-copy > p:first-child {
+  margin-bottom: 20px;
+}
+
+.care-note {
+  padding: 18px 20px;
+
+  border: 1px solid rgba(232,93,136,.12);
+  border-radius: 18px;
+
+  background: rgba(255, 228, 235, .45);
+
+  text-align: left;
+}
+
+.care-note span {
+  display: inline-block;
+
+  margin-right: 8px;
+
+  color: var(--pink);
+
+  font-size: 1.3rem;
+}
+
+.medical-note {
+  margin-top: 18px;
+
+  color: rgba(84,44,60,.45);
+
+  font-size: .72rem;
+  font-style: italic;
+}
+
+
+/* =========================================================
+   INTERLUDE
+   ========================================================= */
+
+.scene--interlude {
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(255, 170, 197, .3),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #7e2148,
+      #b63768 50%,
+      #7b2149
+    );
+}
+
+.interlude-content {
+  position: relative;
+  z-index: 5;
+
+  width: min(700px, 100%);
+
+  text-align: center;
+}
+
+.interlude-content .kicker {
+  color: rgba(255,255,255,.7);
+}
+
+.interlude-content h2 {
+  color: white;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.interlude-content h2 em {
+  color: #ffd1de;
+}
+
+.interlude-content .button {
+  margin-top: 35px;
+}
+
+.interlude-bloom {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 105px;
+  height: 105px;
+
+  margin: 0 auto 28px;
+
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  box-shadow:
+    0 0 70px rgba(255, 184, 209, .18);
+
+  animation: bloomPulse 4s ease-in-out infinite;
+}
+
+.interlude-bloom span {
+  color: #ffd2df;
+
+  font-size: 3.5rem;
+}
+
+.interlude-bloom i {
+  position: absolute;
+
+  top: 10px;
+  right: 13px;
+
+  color: white;
+
+  font-size: 1.2rem;
+}
+
+@keyframes bloomPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 50px rgba(255,184,209,.12);
+  }
+
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 90px rgba(255,184,209,.25);
+  }
+}
+
+
+/* =========================================================
+   FINAL SCENE
+   ========================================================= */
+
+.scene--final {
+  overflow: hidden;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(245, 120, 160, .25),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(255, 180, 200, .12),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #68183d,
+      #9c2d5c 48%,
+      #64183a
+    );
+}
+
+.final-scene-glow {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(255,255,255,.08),
+      transparent 35%
+    );
+
+  animation: finalGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes finalGlow {
+  from {
+    opacity: .5;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+
+/* ---------- BOUQUET ---------- */
+
+.final-bouquet {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 370px;
+  height: 390px;
+
+  transform:
+    translate(-50%, -72%)
+    scale(.85);
+
+  animation: bouquetAppear 1.5s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+@keyframes bouquetAppear {
+  from {
+    opacity: 0;
+    transform:
+      translate(-50%, -58%)
+      scale(.55);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translate(-50%, -72%)
+      scale(.85);
+  }
+}
+
+.final-bouquet .rose {
+  position: absolute;
+
+  transform-origin: bottom center;
+}
+
+.final-bouquet .rose-head {
+  transform: translateX(-50%) scale(.9);
+}
+
+.final-bouquet .rose--one {
+  left: 135px;
+  top: 15px;
+
+  transform: rotate(-4deg) scale(1.25);
+  z-index: 5;
+}
+
+.final-bouquet .rose--two {
+  left: 58px;
+  top: 58px;
+
+  transform: rotate(-17deg) scale(.95);
+  z-index: 4;
+}
+
+.final-bouquet .rose--three {
+  left: 215px;
+  top: 55px;
+
+  transform: rotate(17deg) scale(.95);
+  z-index: 4;
+}
+
+.final-bouquet .rose--four {
+  left: 5px;
+  top: 112px;
+
+  transform: rotate(-25deg) scale(.75);
+  z-index: 3;
+}
+
+.final-bouquet .rose--five {
+  left: 285px;
+  top: 112px;
+
+  transform: rotate(25deg) scale(.75);
+  z-index: 3;
+}
+
+.final-bouquet .rose--one {
+  animation: flowerSway 5s ease-in-out infinite;
+}
+
+.final-bouquet .rose--two {
+  animation: flowerSwayLeft 5.5s ease-in-out infinite;
+}
+
+.final-bouquet .rose--three {
+  animation: flowerSwayRight 5.5s ease-in-out infinite;
+}
+
+@keyframes flowerSway {
+  0%, 100% {
+    transform: rotate(-4deg) scale(1.25);
+  }
+
+  50% {
+    transform: rotate(4deg) scale(1.25);
+  }
+}
+
+@keyframes flowerSwayLeft {
+  0%, 100% {
+    transform: rotate(-17deg) scale(.95);
+  }
+
+  50% {
+    transform: rotate(-10deg) scale(.95);
+  }
+}
+
+@keyframes flowerSwayRight {
+  0%, 100% {
+    transform: rotate(17deg) scale(.95);
+  }
+
+  50% {
+    transform: rotate(10deg) scale(.95);
+  }
+}
+
+
+/* ---------- BOUQUET WRAP ---------- */
+
+.bouquet-wrap {
+  position: absolute;
+
+  left: 50%;
+  bottom: 12px;
+
+  width: 220px;
+  height: 155px;
+
+  transform: translateX(-50%);
+
+  clip-path: polygon(
+    10% 0,
+    90% 0,
+    72% 100%,
+    28% 100%
+  );
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5b7c8,
+      #d9698c,
+      #b83b67
+    );
+
+  opacity: .95;
+
+  
+  filter:
+      drop-shadow(0 18px 20px rgba(0,0,0,.18));
+
+  z-index: 6;
+}
+
+.bouquet-bow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 35px;
+
+  z-index: 8;
+
+  width: 45px;
+  height: 45px;
+
+  transform: translateX(-50%);
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #fff;
+  font-size: 1.8rem;
+
+  background: #a52e58;
+
+  box-shadow:
+    0 8px 15px rgba(0,0,0,.2);
+}
+
+
+/* ---------- FINAL COPY ---------- */
+
+.final-copy {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+  bottom: 7%;
+
+  width: min(600px, 90%);
+
+  transform: translateX(-50%);
+
+  text-align: center;
+}
+
+.final-kicker {
+  margin-bottom: 8px;
+
+  color: rgba(255,255,255,.68);
+
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.final-copy h2 {
+  color: white;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.2rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.final-copy h2 span {
+  display: inline-block;
+
+  font-family: sans-serif;
+  font-size: .6em;
+
+  animation: heartBeat 1.7s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.18);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
+}
+
+.final-message {
+  max-width: 480px;
+
+  margin: 18px auto 8px;
+
+  color: rgba(255,255,255,.82);
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.final-signoff {
+  color: #ffd3df;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.final-copy .button {
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   PETALS
+   ========================================================= */
+
+.petal-layer,
+.heart-layer {
+  position: fixed;
+  inset: 0;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+.petal-layer--final {
+  z-index: 15;
+}
+
+.petal {
+  position: absolute;
+
+  top: -35px;
+
+  width: 13px;
+  height: 19px;
+
+  border-radius: 70% 20% 70% 20%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffb2c7,
+      #dc4f7d
+    );
+
+  box-shadow:
+    0 4px 10px rgba(124, 26, 68, .1);
+
+  transform: rotate(0deg);
+
+  animation:
+    petalFall linear forwards;
+}
+
+.petal--float {
+  animation-name: petalFloat;
+}
+
+@keyframes petalFall {
+  0% {
+    transform:
+      translate3d(0, -40px, 0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translate3d(var(--drift), 50vh, 0)
+      rotate(calc(var(--spin) / 2));
+  }
+
+  100% {
+    transform:
+      translate3d(calc(var(--drift) * -1), 110vh, 0)
+      rotate(var(--spin));
+  }
+}
+
+@keyframes petalFloat {
+  0% {
+    transform:
+      translate3d(0, -30px, 0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translate3d(var(--drift), 45vh, 0)
+      rotate(calc(var(--spin) / 2));
+  }
+
+  100% {
+    transform:
+      translate3d(calc(var(--drift) * -1), 105vh, 0)
+      rotate(var(--spin));
+  }
+}
+
+
+/* ---------- FLOATING HEARTS ---------- */
+
+.floating-heart {
+  position: absolute;
+
+  bottom: -40px;
+
+  color: rgba(255, 210, 224, .8);
+
+  font-size: 1.4rem;
+
+  animation:
+    heartFloat linear forwards;
+}
+
+@keyframes heartFloat {
+  0% {
+    opacity: 0;
+    transform:
+      translate3d(0, 0, 0)
+      scale(.7)
+      rotate(0deg);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(var(--drift), -110vh, 0)
+      scale(1.15)
+      rotate(20deg);
+  }
+}
+
+
+/* ---------- SPARKLE PARTICLES ---------- */
+
+.sparkle-particle {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 12px 4px rgba(255,255,255,.65);
+
+  pointer-events: none;
+
+  animation:
+    sparkleParticle ease-in-out forwards;
+}
+
+@keyframes sparkleParticle {
+  0% {
+    opacity: 0;
+    transform: scale(.2) rotate(0deg);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(.2) rotate(180deg);
+  }
+}
+
+
+/* ---------- FINAL HEARTS ---------- */
+
+.final-heart {
+  position: absolute;
+
+  color: rgba(255, 216, 228, .55);
+
+  font-size: 2rem;
+
+  animation: finalHeartFloat 5s ease-in-out infinite;
+}
+
+.final-heart--one {
+  left: 8%;
+  top: 28%;
+}
+
+.final-heart--two {
+  right: 10%;
+  top: 35%;
+
+  animation-delay: 1.3s;
+}
+
+.final-heart--three {
+  left: 18%;
+  bottom: 15%;
+
+  animation-delay: 2s;
+}
+
+@keyframes finalHeartFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: .35;
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.15);
+    opacity: .8;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLETTES
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .scene {
+    padding: 30px 20px;
+  }
+
+  .story-card {
+    padding: 50px 35px;
+  }
+
+  .final-bouquet {
+    transform:
+      translate(-50%, -78%)
+      scale(.72);
+  }
+
+  @keyframes bouquetAppear {
+    from {
+      opacity: 0;
+      transform:
+        translate(-50%, -62%)
+        scale(.5);
+    }
+
+    to {
+      opacity: 1;
+      transform:
+        translate(-50%, -78%)
+        scale(.72);
+    }
+  }
+
+  .final-copy {
+    bottom: 5%;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMARTPHONES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    overflow: hidden;
+  }
+
+  .scene {
+    min-height: 100dvh;
+    padding: 24px 16px;
+  }
+
+  .intro-content {
+    width: 100%;
+  }
+
+  .eyebrow {
+    font-size: .6rem;
+    letter-spacing: .14em;
+  }
+
+  .eyebrow-line {
+    width: 22px;
+  }
+
+  .intro-flower {
+    width: 78px;
+    height: 78px;
+
+    margin-bottom: 20px;
+
+    font-size: 2.8rem;
+  }
+
+  .intro-content h1 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+  }
+
+  .intro-subtitle {
+    margin-top: 18px;
+    margin-bottom: 24px;
+
+    font-size: .95rem;
+  }
+
+  .button {
+    min-height: 50px;
+
+    padding: 13px 20px;
+
+    font-size: .82rem;
+  }
+
+  .story-card {
+    width: 100%;
+
+    padding:
+      50px
+      20px
+      28px;
+
+    border-radius: 22px;
+  }
+
+  .step-mark {
+    top: 17px;
+    left: 20px;
+
+    font-size: .58rem;
+  }
+
+  .story-card h2 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
+  .lead {
+    font-size: .94rem;
+    line-height: 1.7;
+  }
+
+  .ribbon-icon,
+  .awareness-ribbon {
+    width: 62px;
+    height: 62px;
+
+    font-size: 1.9rem;
+  }
+
+  .rose-portrait {
+    transform: scale(.82);
+
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .romantic-copy p {
+    font-size: .9rem;
+    line-height: 1.7;
+  }
+
+  .awareness-copy {
+    font-size: .88rem;
+    line-height: 1.7;
+  }
+
+  .care-note {
+    padding: 14px;
+
+    font-size: .85rem;
+  }
+
+  .medical-note {
+    font-size: .64rem;
+  }
+
+  .interlude-content h2 {
+    font-size: clamp(2.2rem, 11vw, 3.5rem);
+  }
+
+  .interlude-bloom {
+    width: 85px;
+    height: 85px;
+  }
+
+  .interlude-bloom span {
+    font-size: 2.8rem;
+  }
+
+  /* Bouquet mobile */
+
+  .final-bouquet {
+    top: 40%;
+
+    width: 340px;
+    height: 340px;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.55);
+  }
+
+  @keyframes bouquetAppear {
+    from {
+      opacity: 0;
+      transform:
+        translate(-50%, -45%)
+        scale(.4);
+    }
+
+    to {
+      opacity: 1;
+      transform:
+        translate(-50%, -50%)
+        scale(.55);
+    }
+  }
+
+  .final-copy {
+    bottom: 6%;
+
+    width: calc(100% - 32px);
+  }
+
+  .final-kicker {
+    font-size: .58rem;
+    letter-spacing: .16em;
+  }
+
+  .final-copy h2 {
+    font-size: clamp(3rem, 16vw, 4.7rem);
+  }
+
+  .final-message {
+    margin-top: 12px;
+
+    font-size: .84rem;
+    line-height: 1.55;
+  }
+
+  .final-signoff {
+    font-size: 1rem;
+  }
+
+  .final-copy .button {
+    margin-top: 14px;
+  }
+
+  .corner-sparkle {
+    font-size: 1.3rem;
+  }
+
+  .sparkle-one {
+    left: 7%;
+  }
+
+  .sparkle-two {
+    right: 7%;
+  }
+
+  .orbit--one {
+    width: 350px;
+    height: 350px;
+  }
+
+  .orbit--two {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .scene {
+    padding: 18px 12px;
+  }
+
+  .story-card {
+    padding:
+      45px
+      16px
+      22px;
+  }
+
+  .intro-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .story-card h2 {
+    font-size: 1.9rem;
+  }
+
+  .romantic-copy p {
+    font-size: .84rem;
+  }
+
+  .final-bouquet {
+    top: 38%;
+    transform:
+      translate(-50%, -50%)
+      scale(.48);
+  }
+
+  @keyframes bouquetAppear {
+    from {
+      opacity: 0;
+      transform:
+        translate(-50%, -45%)
+        scale(.35);
+    }
+
+    to {
+      opacity: 1;
+      transform:
+        translate(-50%, -50%)
+        scale(.48);
+    }
+  }
+
+  .final-copy {
+    bottom: 5%;
+  }
+
+  .final-copy h2 {
+    font-size: 2.8rem;
+  }
+
+  .final-message {
+    font-size: .78rem;
+  }
+}
+
+
+/* =========================================================
+   RÉDUCTION DES ANIMATIONS
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .scene {
+    transform: none;
+  }
+
+  .scene.is-active {
+    transform: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
